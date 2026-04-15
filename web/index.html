@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Master</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="dm">
+
+    <div id="dm-hdr">
+      <div id="dm-ttl">&#9643; DUNGEON MASTER &#9643;</div>
+      <div id="dm-sub">Kruskal's MST &bull; DFS Solver &bull; BFS Optimal &bull; Star Rating</div>
+    </div>
+
+    <div id="dm-top">
+      <div id="dm-sz-group">
+        <label>MAZE SIZE:</label>
+        <select id="sz">
+          <option value="9">9x9  - Easy</option>
+          <option value="13" selected>13x13 - Medium</option>
+          <option value="17">17x17 - Hard</option>
+          <option value="21">21x21 - Expert</option>
+          <option value="25">25x25 - Insane</option>
+        </select>
+      </div>
+      <div id="dm-stats">
+        <div class="ds">YOUR MOVES<br><span id="s-mv">0</span></div>
+        <div class="ds">OPTIMAL<br><span id="s-opt">-</span></div>
+        <div class="ds">RATIO<br><span id="s-rat">-</span></div>
+        <div class="ds">TIME<br><span id="s-tm">0s</span></div>
+      </div>
+    </div>
+
+    <div id="dm-body">
+      <div id="dm-cv-wrap">
+        <canvas id="cv"></canvas>
+        <div id="dm-loading">GENERATING MAZE...</div>
+      </div>
+      <div id="dm-side">
+
+        <div class="dm-card">
+          <div class="card-title">MOVE PLAYER</div>
+          <div class="cr"><button class="cb" id="bu">&#9650;</button></div>
+          <div class="cr">
+            <button class="cb" id="bl">&#9668;</button>
+            <button class="cb" id="bd">&#9660;</button>
+            <button class="cb" id="br">&#9658;</button>
+          </div>
+          <div class="hint-txt">Arrow keys or WASD</div>
+        </div>
+
+        <div id="dm-btns">
+          <button class="db primary" id="b-new">&#9654; NEW MAZE</button>
+          <button class="db" id="b-solve">&#9999; AUTO SOLVE (DFS)</button>
+          <button class="db" id="b-hint">&#9670; HINT</button>
+          <button class="db" id="b-show">&#9633; TOGGLE PATH</button>
+          <button class="db" id="b-reset">&#8635; RESET POSITION</button>
+        </div>
+
+        <div class="dm-card">
+          <div class="card-title">PERFORMANCE</div>
+          <div id="dm-stars">&#9734;&#9734;&#9734;</div>
+          <div id="dm-rating-label">Complete the maze!</div>
+          <div id="dm-rating-breakdown"></div>
+        </div>
+
+        <div class="dm-card">
+          <div class="card-title">ALGORITHMS</div>
+          <div class="algo-row"><span class="algo-key">GEN</span><span class="algo-val">Kruskal's MST</span></div>
+          <div class="algo-row"><span class="algo-key">DSU</span><span class="algo-val">Union-Find</span></div>
+          <div class="algo-row"><span class="algo-key">SOLVE</span><span class="algo-val">DFS Backtrack</span></div>
+          <div class="algo-row"><span class="algo-key">OPT</span><span class="algo-val">BFS Shortest</span></div>
+        </div>
+
+        <div id="dm-msg-box">Press NEW MAZE to begin!</div>
+      </div>
+    </div>
+
+    <div id="dm-win-panel"></div>
+
+    <div id="dm-legend">
+      <div class="leg"><div class="leg-dot" style="background:#FFD700"></div>You</div>
+      <div class="leg"><div class="leg-dot" style="background:#00ff88"></div>Start</div>
+      <div class="leg"><div class="leg-dot" style="background:#ff3355"></div>Exit</div>
+      <div class="leg"><div class="leg-dot" style="background:#1a6fff"></div>Wall</div>
+      <div class="leg"><div class="leg-dot" style="background:#ff6b9d44;border:1px solid #ff6b9d66"></div>Visited</div>
+      <div class="leg"><div class="leg-dot" style="background:#00ffff33;border:1px solid #00ffff55"></div>Optimal Path</div>
+      <div class="leg"><div class="leg-dot" style="background:#ffff0044;border:1px solid #ffff0066"></div>Hint</div>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

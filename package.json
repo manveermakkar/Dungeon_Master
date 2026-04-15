@@ -1,0 +1,12 @@
+{
+  "name": "dungeon-master",
+  "version": "1.0.0",
+  "description": "Procedural maze game using Kruskal's MST + DFS/BFS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
